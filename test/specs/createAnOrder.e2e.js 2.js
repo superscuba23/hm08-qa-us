@@ -26,6 +26,7 @@ describe('Create an order', () => {
     });
 
     it('should add a credit card', async () => {
+        await browser.url(`/`);
         const addCardButton = await $('#add-card-button'); // Replace with the actual selector
         await addCardButton.click();
 
@@ -48,12 +49,14 @@ describe('Create an order', () => {
     });
 
     it('should write a message for the driver', async () => {
+        await browser.url(`/`);
         const messageInput = await $('#driver-message'); // Replace with the actual selector
         await messageInput.setValue('Please be on time!');
         await expect(messageInput).toHaveValue('Please be on time!');
     });
 
     it('should order a Blanket and handkerchiefs', async () => {
+        await browser.url(`/`);
         const blanketCheckbox = await $('#order-blanket'); // Replace with the actual selector
         await blanketCheckbox.click();
         const handkerchiefsCheckbox = await $('#order-handkerchiefs'); // Replace with the actual selector
@@ -64,12 +67,14 @@ describe('Create an order', () => {
     });
 
     it('should order 2 Ice creams', async () => {
+        await browser.url(`/`);
         const iceCreamInput = await $('#order-ice-cream'); // Replace with the actual selector
         await iceCreamInput.setValue('2');
         await expect(iceCreamInput).toHaveValue('2');
     });
 
     it('should display car search modal', async () => {
+        await browser.url(`/`);
         const searchCarButton = await $('#search-car'); // Replace with the actual selector
         await searchCarButton.click();
 
@@ -79,6 +84,7 @@ describe('Create an order', () => {
     });
 
     it('should wait for the driver info to appear in the modal (optional)', async () => {
+        await browser.url(`/`);
         const driverInfo = await $('#driver-info'); // Replace with the actual selector
         await driverInfo.waitForDisplayed({ timeout: 10000 });
         await expect(driverInfo).toBeDisplayed();
